@@ -84,3 +84,21 @@ console.log(10)
 
 // 从全局上下文出发，先执行同步代码，同步代码执行完成后，收集微任务与宏任务，先清空微任务队列，再执行宏任务。
 // 如果这期间遇到宏任务/微任务，将其放入对应的层级执行
+
+function a() {
+  return new Promise((resolve) => {
+    console.log(1)
+    setTimeout(() => {
+      console.log(2)
+      resolve()
+    }, 500)
+  }).then(() => {
+    console.log(3)
+  })
+}
+function c() {
+  console.log(4)
+  a()
+  console.log(5)
+}
+c()
