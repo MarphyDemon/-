@@ -103,3 +103,30 @@ function debounce(fn, delay) {
     }, delay)
   }
 }
+
+// 防抖
+function debounce(fn, ms) {
+  var timer
+  return function (args) {
+    if (timer) {
+      clearTimeout(timer)
+    }
+    timer = setTimeout(() => {
+      fn.apply(this, args)
+    }, ms)
+  }
+}
+
+// 节流
+function throttle(fn, ms) {
+  var timer
+  return function (args) {
+    if (timer) {
+      return
+    }
+    timer = setTimeout(() => {
+      fn.apply(this, args)
+      timer = null
+    }, ms)
+  }
+}

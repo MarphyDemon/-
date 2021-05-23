@@ -33,3 +33,19 @@ Function.prototype.bind = function () {
     this.call(_this, ...args, ...newArgs)
   }
 }
+
+function myCall() {
+  const [_this, ...args] = arguments
+  _this = Object(this) || this
+  const fn = Symbol()
+  const result = _this[fn](...args)
+  delete _this[fn]
+  return result
+}
+
+Function.prototype.bind = function () {
+  var [_this, ...args] = arguments
+  return function (...newArgs) {
+    return this.call(...args, ...newArgs)
+  }
+}
