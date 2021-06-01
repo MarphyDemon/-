@@ -50,3 +50,5 @@ useEffect(() => {
     // componentDidUnMount
   }
 }, [])
+
+// useEffect异步执行的原因是防止同步执行阻塞游览器渲染。
