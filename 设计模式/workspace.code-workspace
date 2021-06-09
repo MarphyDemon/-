@@ -11,6 +11,10 @@
 		},
 		{
 			"path": "../../公司真题"
+		},
+		{
+			"name": ".leetcode",
+			"path": "../../../.leetcode"
 		}
 	],
 	"settings": {}
