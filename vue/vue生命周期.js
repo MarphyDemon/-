@@ -1,0 +1,9 @@
+// vue生命周期主要分为四个阶段：创建、挂载、更新、销毁。
+// beforeCreate
+// Created
+// beforeMount
+// mounted
+// beforeUpdate
+// update
+// beforeDestory
+// destory
