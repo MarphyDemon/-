@@ -1,11 +1,11 @@
 // 将分支如if switch等转换为配置。
 if (a === 1) {
   aa()
-} else if (b === 2) {
+} else if (a === 2) {
   bb()
-} else if (c === 3) {
+} else if (a === 3) {
   cc()
-} else if (d === 4) {
+} else if (a === 4) {
   dd()
 }
 

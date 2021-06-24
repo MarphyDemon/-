@@ -11,9 +11,6 @@ const Observer = (obj, key, callback) => {
       callback && callback(val)
     },
   })
-  if (obj.data[key]) {
-    // callback && callback(obj.data[key])
-  }
 }
 
 const obj = {
