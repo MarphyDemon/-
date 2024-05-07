@@ -4,3 +4,4 @@
 // relative
 // absolute
 // fixed
+// staic
