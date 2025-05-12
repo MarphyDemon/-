@@ -103,3 +103,15 @@ react fiber 架构是对 react 核心算法的一次重大升级。主要用于�
 调度阶段：负责任务的优先级排序和任务调度。
 调和阶段：负责对比新旧 fiber 树，找出需要更新的地方。和传统方式对比，该阶段是可以被中断的。
 提交阶段：将新的 fiber 树一次性提交，批量更新 dom。此时也会执行一些与 dom 相关的副作用操作，例如添加事件监听器，更新 refs。
+
+## useEffect VS useLayoutEffect
+
+使用场景：
+
+useEffect 在 React 的渲染过程中是被异步调用的，用于绝大多数场景；
+useLayoutEffect 会在所有的 DOM 变更之后同步调用，主要用于处理 DOM 操作、调整样式、避免页面闪烁等问题。
+也正因为是同步处理，所以需要避免在 useLayoutEffect 做计算量较大的耗时任务从而造成阻塞。
+
+使用效果：
+useEffect 是按照顺序执行代码的，改变屏幕像素之后执行（先渲染，后改变 DOM），当改变屏幕内容时可能会产生闪烁；
+useLayoutEffect 是改变屏幕像素之前就执行了（会推迟页面显示的事件，先改变 DOM 后渲染），不会产生闪烁。useLayoutEffect 总是比 useEffect 先执行。
